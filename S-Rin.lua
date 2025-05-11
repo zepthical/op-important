@@ -100,33 +100,39 @@ G2L["a"]["AspectRatio"] = 2.30342;
 local UserInputService = game:GetService("UserInputService")
 
 if _G.Anos == true then
+    local player = game.Players.LocalPlayer
+    local equipped = false
+
     local Anos = Instance.new("Tool")
     Anos.Name = "Anos"
-    Anos.Parent = game.Players.LocalPlayer.Backpack
+    Anos.Parent = player.Backpack
+
     Anos.Equipped:Connect(function()
         G2L["1"]["Enabled"] = true
-        UserInputService.InputBegan:Connect(function(input, gameProcessed)
-            if not gameProcessed then
-                if input.KeyCode == Enum.KeyCode.Z then
-                    game.ReplicatedStorage.Anos.Remote.SkillZ:FireServer()
-    
-                elseif input.KeyCode == Enum.KeyCode.X then
-                    game.ReplicatedStorage.Anos.Remote.SkillX:FireServer()
-    
-                elseif input.KeyCode == Enum.KeyCode.C then
-                    game.ReplicatedStorage.Anos.Remote.SkillC:FireServer()
-    
-                elseif input.KeyCode == Enum.KeyCode.V then
-                    game.ReplicatedStorage.Anos.Remote.SkillV:FireServer()
-                end
-            end
-        end)
+        equipped = true
     end)
-    task.wait()
+
     Anos.Unequipped:Connect(function()
         G2L["1"]["Enabled"] = false
+        equipped = false
+    end)
+
+    UserInputService.InputBegan:Connect(function(input, gameProcessed)
+        if equipped and not gameProcessed then
+            local skillRemote = game.ReplicatedStorage.Anos.Remote
+            if input.KeyCode == Enum.KeyCode.Z then
+                skillRemote.SkillZ:FireServer()
+            elseif input.KeyCode == Enum.KeyCode.X then
+                skillRemote.SkillX:FireServer()
+            elseif input.KeyCode == Enum.KeyCode.C then
+                skillRemote.SkillC:FireServer()
+            elseif input.KeyCode == Enum.KeyCode.V then
+                skillRemote.SkillV:FireServer()
+            end
+        end
     end)
 end
+
 
 if _G.Gojo == true then
     local gojo = Instance.new("Tool")
