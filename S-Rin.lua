@@ -4,7 +4,7 @@ _G.Anos = true
 local G2L = {};
 
 -- StarterGui.ScreenGui
-G2L["1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"));
+G2L["1"] = Instance.new("ScreenGui", game:GetService("CoreGui"));
 G2L["1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling;
 G2L["1"]["Enabled"] = false
 
@@ -99,6 +99,7 @@ G2L["a"]["AspectRatio"] = 2.30342;
 
 local UserInputService = game:GetService("UserInputService")
 
+pcall(function()
 if _G.Anos == true then
     local player = game.Players.LocalPlayer
     local equipped = false
@@ -133,6 +134,9 @@ if _G.Anos == true then
     end)
 end
 
+end)
+
+pcall(function()
 
 if _G.Gojo == true then
     local gojo = Instance.new("Tool")
@@ -163,3 +167,5 @@ if _G.Gojo == true then
     end)
 
 end
+
+end)
