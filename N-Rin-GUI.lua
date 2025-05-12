@@ -103,25 +103,12 @@ local ToggleAL = Tabs.Main:AddToggle("AutoLevel",
 pcall(function()
     while _G.Level do
         task.wait()
+        game:GetService("ReplicatedStorage").Sungs.Events.Rush:FireServer()
+        humanoid.CFrame = CFrame.new(-532, 25, -1514)
+        autoupgradesword()
+        task.wait(0.5)
+        end
 
-        local lv = getLevel() -- update level each loop
-        if lv and lv < 400 then
-             looptp(-436, 16, -196)
-        elseif lv >= 400 and lv < 1000 then
-            looptp(-725, 15, 752)
-        elseif lv >= 1000 and lv < 2000 then
-            looptp(380, 14, -1584)
-        elseif lv >= 2000 and lv < 4000 then
-            looptp(271, 18, -638)
-        elseif lv >= 4000 and lv < 10000 then
-            looptp(-532, 25, -1514)
-        elseif lv >= 45000 then
-            break
-                end
-                game:GetService("ReplicatedStorage").Sungs.Events.Rush:FireServer()
-                autoupgradesword()
-                task.wait(0.5)
-            end
         end)
     end 
 })
@@ -133,6 +120,7 @@ ToggleAL:OnChanged(function(v)
     pcall(function()
     while _G.Level do
         task.wait()
+        humanoid.CFrame = CFrame.new(-532, 25, -1514)
         game:GetService("ReplicatedStorage").Sungs.Events.Rush:FireServer()
         autoupgradesword()
         task.wait(0.5)
