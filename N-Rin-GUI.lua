@@ -1,9 +1,9 @@
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 
 local Window = Fluent:CreateWindow({
-    Title = "N Rin Sea | Zepthical" .. Fluent.Version,
+    Title = "N Rin Sea | Zepthical",
     SubTitle = "by Zepthical",
-    TabWidth = 100,
+    TabWidth = 120,
     Size = UDim2.fromOffset(480, 400),
     Acrylic = true, -- The blur may be detectable, setting this to false disables blur entirely
     Theme = "Dark",
@@ -133,17 +133,12 @@ ToggleAL:OnChanged(function(v)
     pcall(function()
     while _G.Level do
         task.wait()
+        game:GetService("ReplicatedStorage").Sungs.Events.Rush:FireServer()
+        autoupgradesword()
+        task.wait(0.5)
+    end
 
-        local lv = getLevel() -- update level each loop
-        looptp(-532, 25, -1514)
-        if lv >= 45000 then
-            break
-        end
-            game:GetService("ReplicatedStorage").Sungs.Events.Rush:FireServer()
-            autoupgradesword()
-            task.wait(0.5)
-            end
-        end)
+    end)
 
     else
         print("Disabled")
