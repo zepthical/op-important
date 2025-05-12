@@ -89,7 +89,7 @@ end
 _G.tp = true
 local function looptp(x, y, z)
     while _G.tp do task.wait()
-        humanoid.CFrame = CFrame.new(x, y, z)
+        hrp.CFrame = CFrame.new(x, y, z)
     end
 end
 
@@ -105,7 +105,7 @@ pcall(function()
     while _G.Level do
         task.wait()
         game:GetService("ReplicatedStorage").Sungs.Events.Rush:FireServer()
-        hrp.CFrame = CFrame.new(-532, 25, -1514)
+        looptp(-532, 25, -1514)
         autoupgradesword()
         task.wait(0.5)
         end
@@ -113,23 +113,3 @@ pcall(function()
         end)
     end 
 })
-
-ToggleAL:OnChanged(function(v)
-    while v == true do task.wait()
-        _G.Level = v
-
-    pcall(function()
-    while _G.Level do
-        task.wait()
-        hrp.CFrame = CFrame.new(-532, 25, -1514)
-        game:GetService("ReplicatedStorage").Sungs.Events.Rush:FireServer()
-        autoupgradesword()
-        task.wait(0.5)
-    end
-
-    end)
-
-    else
-        print("Disabled")
-    end
-end)
