@@ -31,6 +31,7 @@ local player = Players.LocalPlayer
 local playergui = player:FindFirstChild("PlayerGui")
 local character = player.Character
 local humanoid = character:FindFirstChild("Humanoid") or character:WaitForChild("Humanoid")
+local hrp = character:WaitForChild("HumanoidRootPart")
 
 local Section = Tabs.Main:AddSection("Level")
 
@@ -104,7 +105,7 @@ pcall(function()
     while _G.Level do
         task.wait()
         game:GetService("ReplicatedStorage").Sungs.Events.Rush:FireServer()
-        humanoid.CFrame = CFrame.new(-532, 25, -1514)
+        hrp.CFrame = CFrame.new(-532, 25, -1514)
         autoupgradesword()
         task.wait(0.5)
         end
@@ -120,7 +121,7 @@ ToggleAL:OnChanged(function(v)
     pcall(function()
     while _G.Level do
         task.wait()
-        humanoid.CFrame = CFrame.new(-532, 25, -1514)
+        hrp.CFrame = CFrame.new(-532, 25, -1514)
         game:GetService("ReplicatedStorage").Sungs.Events.Rush:FireServer()
         autoupgradesword()
         task.wait(0.5)
