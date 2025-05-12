@@ -115,7 +115,7 @@ pcall(function()
 })
 
 ToggleAL:OnChanged(function(v)
-    if v == true then
+    while v == true do task.wait()
         _G.Level = v
 
     pcall(function()
