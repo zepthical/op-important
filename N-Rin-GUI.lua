@@ -1,10 +1,10 @@
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 
 local Window = Fluent:CreateWindow({
-    Title = "N Rin Sea | Zepthical  " .. Fluent.Version,
+    Title = "N Rin Sea | Zepthical" .. Fluent.Version,
     SubTitle = "by Zepthical",
-    TabWidth = 160,
-    Size = UDim2.fromOffset(480, 360),
+    TabWidth = 100,
+    Size = UDim2.fromOffset(480, 400),
     Acrylic = true, -- The blur may be detectable, setting this to false disables blur entirely
     Theme = "Dark",
     MinimizeKey = Enum.KeyCode.LeftControl -- Used when theres no MinimizeKeybind
@@ -135,22 +135,13 @@ ToggleAL:OnChanged(function(v)
         task.wait()
 
         local lv = getLevel() -- update level each loop
-        if lv and lv < 400 then
-             looptp(-436, 16, -196)
-        elseif lv >= 400 and lv < 1000 then
-            looptp(-725, 15, 752)
-        elseif lv >= 1000 and lv < 2000 then
-            looptp(380, 14, -1584)
-        elseif lv >= 2000 and lv < 4000 then
-            looptp(271, 18, -638)
-        elseif lv >= 4000 and lv < 10000 then
-            looptp(-532, 25, -1514)
-        elseif lv >= 45000 then
+        looptp(-532, 25, -1514)
+        if lv >= 45000 then
             break
-                end
-                game:GetService("ReplicatedStorage").Sungs.Events.Rush:FireServer()
-                autoupgradesword()
-                task.wait(0.5)
+        end
+            game:GetService("ReplicatedStorage").Sungs.Events.Rush:FireServer()
+            autoupgradesword()
+            task.wait(0.5)
             end
         end)
 
