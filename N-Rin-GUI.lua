@@ -1,7 +1,7 @@
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 
 local Window = Fluent:CreateWindow({
-    Title = "N Rin Sea | Zepthical" .. Fluent.Version,
+    Title = "N Rin Sea | Zepthical  " .. Fluent.Version,
     SubTitle = "by Zepthical",
     TabWidth = 160,
     Size = UDim2.fromOffset(480, 360),
